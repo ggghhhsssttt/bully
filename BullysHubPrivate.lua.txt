@@ -1551,7 +1551,7 @@ do
             if sign then
                 local surfaceGui = sign:FindFirstChildWhichIsA("SurfaceGui", true)
                 if surfaceGui then
-                    local label = surfaceGui:FindFirstChildWhichIsA("TextLabel", true)
+                    label = surfaceGui:FindFirstChildWhichIsA("TextLabel", true)
                     if label then
                         local text = label.Text:lower()
                         if text:find(LocalPlayer.DisplayName:lower(), 1, true) or text:find(LocalPlayer.Name:lower(), 1, true) then
@@ -1778,7 +1778,7 @@ task.spawn(function()
     local screenGui = Instance.new("ScreenGui")
     screenGui.Name = "AutoStealUI"; screenGui.ResetOnSpawn = false; screenGui.Parent = PlayerGui
 
-    local frame = Instance.new("Frame")
+    frame = Instance.new("Frame")
     local mobileScale = IS_MOBILE and 0.6 or 1
     frame.Size = UDim2.new(0, 300*mobileScale, 0, 630*mobileScale)
     frame.Position = UDim2.new(Config.Positions.AutoSteal.X, 0, Config.Positions.AutoSteal.Y, 0)
@@ -1935,7 +1935,7 @@ task.spawn(function()
             if allPets and #allPets > 0 then
                 for i = 1, #allPets do
                     local petData = allPets[i]
-                    local btn = Instance.new("TextButton")
+                    btn = Instance.new("TextButton")
                     btn.Size = UDim2.new(1,0,0,36); btn.BackgroundColor3 = Theme.Surface
                     btn.Text = ""; btn.Parent = listFrame
                     Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
@@ -2535,7 +2535,7 @@ task.spawn(function()
         bb.Adornee = sign
         bb.Parent = sign
         
-        local frame = Instance.new("Frame", bb)
+        frame = Instance.new("Frame", bb)
         frame.Size = UDim2.new(1, 0, 1, 0)
         frame.BackgroundColor3 = Color3.fromRGB(80, 0, 0)
         frame.BackgroundTransparency = 0.3
@@ -2546,7 +2546,7 @@ task.spawn(function()
         stroke.Color = Color3.fromRGB(255, 0, 0)
         stroke.Thickness = 2
         
-        local label = Instance.new("TextLabel", frame)
+        label = Instance.new("TextLabel", frame)
         label.Size = UDim2.new(1, 0, 1, 0)
         label.BackgroundTransparency = 1
         label.Text = "DUEL BASE"
@@ -3119,7 +3119,7 @@ task.spawn(function()
     adminGui.ResetOnSpawn = false
     adminGui.Parent = PlayerGui
 
-    local frame = Instance.new("Frame")
+    frame = Instance.new("Frame")
     local mobileScale = IS_MOBILE and 0.65 or 1
     frame.Size = UDim2.new(0, 380*mobileScale, 0, 420*mobileScale) 
     frame.Position = UDim2.new(Config.Positions.AdminPanel.X, 0, Config.Positions.AdminPanel.Y, 0)
@@ -4777,7 +4777,7 @@ if IS_MOBILE then
     layout.VerticalAlignment = Enum.VerticalAlignment.Center
 
     local function createMobBtn(text, color, layoutOrder, callback)
-        local btn = Instance.new("TextButton")
+        btn = Instance.new("TextButton")
         btn.Size = UDim2.new(0, 40, 0, 40)
         btn.BackgroundColor3 = Theme.SurfaceHighlight
         btn.Text = text
@@ -4974,7 +4974,7 @@ local function CreateToggleSwitch(parent, initialState, callback)
     dot.Position = initialState and UDim2.new(1,-18,0.5,-8) or UDim2.new(0,2,0.5,-8)
     dot.BackgroundColor3 = Color3.fromRGB(255,255,255)
     Instance.new("UICorner", dot).CornerRadius = UDim.new(1,0); dot.Parent = sw
-    local btn = Instance.new("TextButton"); btn.Size = UDim2.new(1,0,1,0)
+    btn = Instance.new("TextButton"); btn.Size = UDim2.new(1,0,1,0)
     btn.BackgroundTransparency = 1; btn.Text = ""; btn.Parent = sw
     local isOn = initialState
     local function SetState(s)
@@ -5505,7 +5505,7 @@ CreateToggleSwitch(rCompactAutoSteal, Config.CompactAutoSteal, function(ns, set)
     set(ns); Config.CompactAutoSteal = ns; SaveConfig()
     local asUI = PlayerGui:FindFirstChild("AutoStealUI")
     if asUI and asUI:FindFirstChild("Frame") then
-        local frame = asUI.Frame
+        frame = asUI.Frame
         local mobileScale = IS_MOBILE and 0.6 or 1
         local targetHeight = ns and (5 * 44 + 135) or (630 * mobileScale)
         
@@ -6016,7 +6016,7 @@ task.spawn(function()
     if Config.CompactAutoSteal then
         local asUI = PlayerGui:FindFirstChild("AutoStealUI")
         if asUI and asUI:FindFirstChild("Frame") then
-            local frame = asUI.Frame
+            frame = asUI.Frame
             local mobileScale = IS_MOBILE and 0.6 or 1
             frame.Size = UDim2.new(frame.Size.X.Scale, frame.Size.X.Offset, 0, 5 * 44 + 135)
         end
@@ -6906,12 +6906,12 @@ task.spawn(function()
     end)
 
     local function CreateFancySlider(parent, name, min, max, default, callback)
-        local frame = Instance.new("Frame", parent)
+        frame = Instance.new("Frame", parent)
         frame.Size = UDim2.new(1, 0, 0, IS_MOBILE and 35 or 45)
         frame.BackgroundTransparency = 1
         
         if IS_MOBILE then
-            local label = Instance.new("TextLabel", frame)
+            label = Instance.new("TextLabel", frame)
             label.Size = UDim2.new(0.5, 0, 1, 0)
             label.BackgroundTransparency = 1
             label.TextColor3 = Theme.TextSecondary
@@ -6955,7 +6955,7 @@ task.spawn(function()
             
             return frame
         else
-            local label = Instance.new("TextLabel", frame)
+            label = Instance.new("TextLabel", frame)
             label.Size = UDim2.new(1, 0, 0, 15)
             label.BackgroundTransparency = 1
             label.TextColor3 = Theme.TextSecondary
@@ -7160,7 +7160,7 @@ task.spawn(function()
     local function hasExclamation(target)
         for _, d in ipairs(target:GetDescendants()) do
             if d:IsA("BillboardGui") then
-                local label = d:FindFirstChildWhichIsA("TextLabel", true)
+                label = d:FindFirstChildWhichIsA("TextLabel", true)
                 if label and label.Text:find("!") then
                     return true
                 end
@@ -7487,7 +7487,7 @@ task.spawn(function()
 
         local unlockLevels = {-2, 15, 32}
         for i = 1, 3 do
-            local btn = Instance.new("TextButton", unlockContainer)
+            btn = Instance.new("TextButton", unlockContainer)
             btn.Size = UDim2.new(0, 48, 0, 40)
             btn.BackgroundColor3 = Theme.Surface
             btn.BackgroundTransparency = 0.2
@@ -7752,7 +7752,7 @@ task.spawn(function()
                 if lbl and lbl.Text == "Subspace Mine Esp" then
                     local toggleSwitch = row:FindFirstChildWhichIsA("Frame")
                     if toggleSwitch then
-                        local btn = toggleSwitch:FindFirstChildOfClass("TextButton")
+                        btn = toggleSwitch:FindFirstChildOfClass("TextButton")
                         if btn then
                             getgenv().subspaceMineESPToggleRef = subspaceMineESPToggleRef
                         end
@@ -8640,11 +8640,11 @@ task.spawn(function()
     layout.Padding = UDim.new(0, 8 * SCALE)
 
     local function CreateInput(placeholder, width, default)
-        local frame = Instance.new("Frame")
+        frame = Instance.new("Frame")
         frame.BackgroundTransparency = 1
         frame.Size = UDim2.new(0, width * SCALE, 0, 32 * SCALE)
         
-        local label = Instance.new("TextLabel", frame)
+        label = Instance.new("TextLabel", frame)
         label.Size = UDim2.new(1, 0, 0, 10 * SCALE)
         label.Position = UDim2.new(0, 0, 0, -10 * SCALE)
         label.BackgroundTransparency = 1
@@ -8681,7 +8681,7 @@ task.spawn(function()
     end
 
     local function CreateButton(text, width, color)
-        local btn = Instance.new("TextButton")
+        btn = Instance.new("TextButton")
         btn.Size = UDim2.new(0, width * SCALE, 0, 32 * SCALE)
         btn.BackgroundColor3 = color
         btn.BackgroundTransparency = 0.2
@@ -9158,7 +9158,7 @@ function buildBullysSettingsUI()
     end
 
     local function makeBtn(parent, lbl, order, callback)
-        local btn = Instance.new("TextButton", parent)
+        btn = Instance.new("TextButton", parent)
         btn.Size = UDim2.new(1,0,0,38)
         btn.BackgroundColor3 = C().SURF
         btn.BackgroundTransparency = 0
@@ -9446,7 +9446,7 @@ function buildBullysSettingsUI()
             dot.Position = isOn and UDim2.new(1,-17,0.5,-7.5) or UDim2.new(0,2,0.5,-7.5)
             dot.BackgroundColor3 = Color3.new(1,1,1)
             Instance.new("UICorner", dot).CornerRadius = UDim.new(1,0)
-            local btn = Instance.new("TextButton", sw)
+            btn = Instance.new("TextButton", sw)
             btn.Size = UDim2.new(1,0,1,0)
             btn.BackgroundTransparency = 1
             btn.Text = ""
@@ -9514,7 +9514,7 @@ function buildBullysSettingsUI()
             dot.Position = isOn and UDim2.new(1,-17,0.5,-7.5) or UDim2.new(0,2,0.5,-7.5)
             dot.BackgroundColor3 = Color3.new(1,1,1)
             Instance.new("UICorner", dot).CornerRadius = UDim.new(1,0)
-            local btn = Instance.new("TextButton", sw)
+            btn = Instance.new("TextButton", sw)
             btn.Size = UDim2.new(1,0,1,0)
             btn.BackgroundTransparency = 1
             btn.Text = ""
